@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basti ki Pathshala | Every Child Deserves to Learn</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Poppins & Baloo 2) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .font-heading {
+            font-family: 'Baloo 2', cursive;
+        }
+        /* Hero Background Image - Themed for Basti ki Pathshala */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        /* Subtle background pattern for sections */
+        .section-bg-pattern {
+             background-color: #f9fafb;
+             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fbbf24' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        /* Scroll-triggered fade-in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-3xl font-heading text-yellow-500">Basti ki Pathshala</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#home" class="text-gray-600 hover:text-yellow-500 transition duration-300">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-yellow-500 transition duration-300">About</a>
+                <a href="#gallery" class="text-gray-600 hover:text-yellow-500 transition duration-300">Gallery</a>
+                <a href="#stories" class="text-gray-600 hover:text-yellow-500 transition duration-300">Stories</a>
+                <a href="#donate" class="text-gray-600 hover:text-yellow-500 transition duration-300">Donate</a>
+                <a href="#volunteer" class="bg-yellow-500 text-white py-2 px-4 rounded-full hover:bg-yellow-600 transition duration-300 font-semibold shadow hover:shadow-lg transform hover:-translate-y-0.5">
+                    Volunteer
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#home" class="block py-2 px-4 text-sm text-gray-600 hover:bg-yellow-50">Home</a>
+            <a href="#about" class="block py-2 px-4 text-sm text-gray-600 hover:bg-yellow-50">About</a>
+            <a href="#gallery" class="block py-2 px-4 text-sm text-gray-600 hover:bg-yellow-50">Gallery</a>
+            <a href="#stories" class="block py-2 px-4 text-sm text-gray-600 hover:bg-yellow-50">Stories</a>
+            <a href="#donate" class="block py-2 px-4 text-sm text-gray-600 hover:bg-yellow-50">Donate</a>
+            <a href="#volunteer" class="block py-2 px-4 text-sm text-gray-600 hover:bg-yellow-50">Volunteer</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Home / Hero -->
+        <section id="home" class="hero-bg h-screen flex items-center justify-center text-white text-center pt-16">
+            <div class="container mx-auto px-6">
+                <h1 class="text-5xl md:text-7xl font-heading leading-tight mb-4">Lighting the Lamp of Knowledge</h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-3xl mx-auto">Bringing free and quality education to the children of India's slums and villages.</p>
+                <a href="#donate" class="bg-yellow-500 text-white font-bold py-3 px-8 rounded-full hover:bg-yellow-600 transition duration-300 text-lg shadow-lg transform hover:scale-105">
+                    Donate Now
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 2: About Us -->
+        <section id="about" class="py-20 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-wrap items-center -mx-4">
+                    <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop" alt="Children learning in an outdoor classroom" class="rounded-lg shadow-2xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FEF3C7/854D0E?text=Our+Students';">
+                    </div>
+                    <div class="w-full md:w-1/2 px-4">
+                        <h2 class="text-4xl font-heading text-gray-800 mb-4">From a Small Step to a Giant Leap</h2>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            'Basti ki Pathshala' started with a simple idea: no child should be left behind. What began under a tree with a handful of students has grown into a community-led movement. We run makeshift schools in slums and remote areas, providing not just academic knowledge, but also values, nutrition, and a safe space to grow.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Our strength is our volunteers and the local community. We believe in empowering people to create change from within.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Photo Gallery -->
+        <section id="gallery" class="py-20 section-bg-pattern fade-in-section">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-heading text-gray-800 mb-2">Moments of Joy & Learning</h2>
+                <p class="text-gray-600 mt-2 mb-12 max-w-2xl mx-auto">A glimpse into the world of our Pathshala.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg gallery-img" src="https://plus.unsplash.com/premium_photo-1682088221085-a99b7aa535b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Child writing on a slate" onerror="this.onerror=null;this.src='https://placehold.co/500x750/FEF3C7/854D0E?text=Pathshala+Moment';">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg gallery-img" src="https://images.unsplash.com/photo-1573894999291-f440466112cc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mother and child reading a book" onerror="this.onerror=null;this.src='https://placehold.co/500x750/FEF3C7/854D0E?text=Pathshala+Moment';">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                         <div>
+                            <img class="h-auto max-w-full rounded-lg gallery-img" src="https://plus.unsplash.com/premium_photo-1722945629593-fff80220b79d?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Children sitting in a row learning" onerror="this.onerror=null;this.src='https://placehold.co/500x750/FEF3C7/854D0E?text=Pathshala+Moment';">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg gallery-img" src="https://images.pexels.com/photos/7176464/pexels-photo-7176464.jpeg" alt="Children's painted hands" onerror="this.onerror=null;this.src='https://placehold.co/500x500/FEF3C7/854D0E?text=Pathshala+Moment';">
+                        </div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg gallery-img" src="https://images.pexels.com/photos/933624/pexels-photo-933624.jpeg" alt="Volunteer teaching a group of kids" onerror="this.onerror=null;this.src='https://placehold.co/500x750/FEF3C7/854D0E?text=Pathshala+Moment';">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg gallery-img" src="https://images.pexels.com/photos/4143798/pexels-photo-4143798.jpeg" alt="Girl smiling while studying" onerror="this.onerror=null;this.src='https://placehold.co/500x750/FEF3C7/854D0E?text=Pathshala+Moment';">
+                        </div>
+                    </div>
+                     <div class="grid gap-4">
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg gallery-img" src="https://images.pexels.com/photos/7176585/pexels-photo-7176585.jpeg" alt="Children laughing together" onerror="this.onerror=null;this.src='https://placehold.co/500x750/FEF3C7/854D0E?text=Pathshala+Moment';">
+                        </div>
+                        <div>
+                            <img class="h-auto max-w-full rounded-lg gallery-img" src="https://images.pexels.com/photos/6646775/pexels-photo-6646775.jpeg" alt="Notebooks and school supplies" onerror="this.onerror=null;this.src='https://placehold.co/500x500/FEF3C7/854D0E?text=Pathshala+Moment';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Success Stories -->
+        <section id="stories" class="py-20 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-heading text-gray-800">Stories of Change</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Meet the bright stars of our Pathshala.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Story 1: Student -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1653157900201-7b98a214f700?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Young girl studying" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/FEF3C7/854D0E?text=Sneha';">
+                        <div class="p-6">
+                            <p class="text-gray-600 italic mb-4">"I love coming to the Pathshala. I've learned to read and write, and I want to become a teacher when I grow up."</p>
+                            <h4 class="font-bold text-lg text-yellow-600">Sneha</h4>
+                            <p class="text-sm text-gray-500">Student, Age 9</p>
+                        </div>
+                    </div>
+                    <!-- Story 2: Parent -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop" alt="Mother and child" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/FEF3C7/854D0E?text=Mrs.+Sunita';">
+                        <div class="p-6">
+                            <p class="text-gray-600 italic mb-4">"My son used to roam the streets. Now, he eagerly waits for his classes. This Pathshala has given us hope for his future."</p>
+                            <h4 class="font-bold text-lg text-yellow-600">Mrs. Sunita</h4>
+                            <p class="text-sm text-gray-500">Parent</p>
+                        </div>
+                    </div>
+                    <!-- Story 3: Volunteer -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                         <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop" alt="Young volunteer teaching" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/FEF3C7/854D0E?text=Rohan';">
+                        <div class="p-6">
+                            <p class="text-gray-600 italic mb-4">"Teaching these kids is the most fulfilling experience. Their energy and eagerness to learn is infectious. It's a two-way learning process."</p>
+                            <h4 class="font-bold text-lg text-yellow-600">Rohan</h4>
+                            <p class="text-sm text-gray-500">Volunteer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Donation Section -->
+        <section id="donate" class="py-20 bg-yellow-500 text-white fade-in-section">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-heading mb-4">Your Support Matters</h2>
+                <p class="text-yellow-100 max-w-2xl mx-auto mb-12">A small contribution can provide a child with books, a uniform, and a chance for a brighter future.</p>
+                <div class="flex flex-wrap justify-center gap-6 mb-12">
+                    <button class="bg-white text-yellow-600 font-bold text-xl py-4 px-8 rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">₹500</button>
+                    <button class="bg-white text-yellow-600 font-bold text-xl py-4 px-8 rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">₹1,000</button>
+                    <button class="bg-white text-yellow-600 font-bold text-xl py-4 px-8 rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">₹2,500</button>
+                </div>
+                <a href="#" class="bg-gray-800 text-white font-bold py-4 px-10 rounded-full hover:bg-gray-900 transition duration-300 text-lg shadow-lg transform hover:scale-105">
+                    <i class="fas fa-heart mr-2"></i>Donate Securely
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 6: Volunteer Form -->
+        <section id="volunteer" class="py-20 section-bg-pattern fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-heading text-gray-800">Join Our Mission</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">You can make a difference. Volunteer your time or help spread the word.</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-2xl">
+                    <form id="volunteer-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <label for="interest" class="block text-sm font-medium text-gray-700">I want to...</label>
+                             <select id="interest" name="interest" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                                <option>Volunteer as a Teacher</option>
+                                <option>Help with Events & Logistics</option>
+                                <option>Sponsor a Child's Education</option>
+                            </select>
+                        </div>
+                        <div class="mt-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700">Your Message (Optional)</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <button type="submit" class="w-full bg-yellow-500 text-white py-3 px-6 rounded-full text-lg font-semibold hover:bg-yellow-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 shadow-lg transform hover:scale-105">
+                                Send My Interest
+                            </button>
+                        </div>
+                    </form>
+                    <div id="success-message" class="hidden mt-6 text-center p-4 bg-green-100 text-green-800 rounded-lg">
+                        Thank you for your support! We are grateful for your interest and will contact you shortly.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-heading text-yellow-500 mb-4">Basti ki Pathshala</h3>
+            <p class="text-gray-400 mb-6">Spreading smiles, one lesson at a time.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl transform hover:scale-110"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl transform hover:scale-110"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 text-2xl transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm mt-8">&copy; 2025 Basti ki Pathshala. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu, Form Submission, and Animations -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form submission handling
+        const volunteerForm = document.getElementById('volunteer-form');
+        const successMessage = document.getElementById('success-message');
+        volunteerForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent actual form submission
+            
+            volunteerForm.style.display = 'none';
+            successMessage.classList.remove('hidden');
+        });
+
+        // Scroll-triggered fade-in animation
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
